@@ -1,0 +1,20 @@
+{
+  "name": "secgin/netgsm-sms",
+  "description": "Netgsm Sms Library for PHP",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "YG\\Netgsm\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Seçgin",
+      "email": "secginsanli@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-simplexml": "*"
+  }
+}
