@@ -16,7 +16,6 @@ use YG\Netgsm\Soap\Client as SoapClient;
 require '../vendor/autoload.php';
 
 $soapClient = new SoapClient(
-    'http://soap.netgsm.com.tr:8080/Sms_webservis/SMS?wsdl/',
     'username',
     'password',
     'message_header'
@@ -49,7 +48,6 @@ SoapClient sınıfının kurucu metodunun 4. parametresi varsayılan parametrele
 Bu varsayılan paramtreler mesaj göndermek için kullanılan 'send' ve 'sendMultiple' metotlarında iptal edilebilir yada değiştirilebilir.
 ```PHP
 $soapClient = new SoapClient(
-    'http://soap.netgsm.com.tr:8080/Sms_webservis/SMS?wsdl/',
     'username',
     'password',
     'message_header',
