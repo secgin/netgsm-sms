@@ -10,8 +10,9 @@ use YG\Netgsm\Soap\Response\SendSmsResponse;
 
 class Client implements ClientInterface
 {
+    const WSDL_URL = 'http://soap.netgsm.com.tr:8080/Sms_webservis/SMS?wsdl';
+
     private string
-        $wsdl = '',
         $username = '',
         $password = '',
         $defaultMessageHeader;
@@ -19,16 +20,14 @@ class Client implements ClientInterface
     private array $defaultParams = [];
 
     /**
-     * @param string   $wsdl
      * @param string   $username
      * @param string   $password
      * @param string   $defaultMessageHeader
      * @param string[] $defaultParams
      */
-    public function __construct(string $wsdl, string $username, string $password, string $defaultMessageHeader,
-                                array  $defaultParams = [])
+    public function __construct(string $username, string $password, string $defaultMessageHeader,
+                                array $defaultParams = [])
     {
-        $this->wsdl = $wsdl;
         $this->username = $username;
         $this->password = $password;
         $this->defaultMessageHeader = $defaultMessageHeader;
@@ -52,7 +51,7 @@ class Client implements ClientInterface
             $params);
 
         return
-            (new SendSmsRequestHandler($this->wsdl))
+            (new SendSmsRequestHandler(self::WSDL_URL))
                 ->handle(
                     (new SendSmsRequest($message, $phones))
                         ->setParams($parameters));
@@ -69,7 +68,7 @@ class Client implements ClientInterface
             $params);
 
         return
-            (new SendMultiSmsRequestHandler($this->wsdl))
+            (new SendMultiSmsRequestHandler(self::WSDL_URL))
                 ->handle(
                     (new SendMultiSmsRequest($phonesAndMessages))
                         ->setParams($parameters));
