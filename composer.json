@@ -2,6 +2,7 @@
   "name": "secgin/netgsm-sms",
   "description": "Netgsm Sms Library for PHP",
   "type": "library",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "YG\\Netgsm\\": "src/"
