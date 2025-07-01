@@ -16,6 +16,7 @@
   ],
   "require": {
     "ext-curl": "*",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "secgin/api-library-base": "v2.0"
   }
 }
